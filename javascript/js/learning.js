@@ -36,16 +36,26 @@ console.group("Variables and Basic Types");
 console.log("value of x is:", x);
 console.groupEnd();
 
+var y = x;
+
 console.group("PRACTICE: Variables and Basic Types");
 //--PRACTICE--
 //Create another variable named `y`, assign it the value
 //currently held in the variable `x`, and write the value
 //of `y` to the console log
 
+console.group("Variables and Basic Types");
+console.log("value of y is:", y);
+console.groupEnd();
 
 //now assign `y` the numeric value 10
 //what does x contain now? Write it to the console
 
+y = 10;
+
+console.group("Variables and Basic Types");
+console.log("value of x is:", x);
+console.groupEnd();
 
 console.groupEnd();
 
@@ -78,12 +88,17 @@ console.group("PRACTICE: Strings");
 //with some text, and then create another string `s4`
 //and assign it the concatenation of `s2` and `s3`
 //then write it to the console so you can verify it worked.
+var s2 = "Hola!";
+var s3 = "Como estas!";
+var s4 = s2 + " " + s3;
+console.log("value of s4 is:", s4);
 
 
 //use the `.trim()` method to remove the leading and
 //trailing white space from this string
 var withSpaces = "    trim those spaces!     ";
-
+console.log(withSpaces);
+console.log(withSpaces.trim());
 
 console.groupEnd();
 
@@ -155,10 +170,20 @@ console.group("PRACTICE: Objects");
 //assigning it to a new variable named `course2`
 //use console.log() to view it in the browser console
 
+var course2 = {
+    class1: "INFO 310",
+    class2: "INFO 343",
+    class3: "INFO 445",
+    class4: "M SCI 101"
+}
+
+console.log(course2);
+
 //now try adding a property named `web site` (with a space)
 //setting it to some string value...it's tricky...
 
-
+course2["web site"] = "http://....";
+console.log(course2);
 
 
 console.groupEnd();
@@ -198,13 +223,19 @@ console.group("PRACTICE: Arrays");
 //--PRACTICE--
 //create another array of playing card suits
 //(clubs, diamonds, hearts, spades)
+var suits = ["clubs", "diamonds", "hearts", "spades"]
+console.log(suits);
+
+
 
 
 //then add a new element named "jokers"
 //afer adding it, access it in the array
 //and log it to the console
 
-
+suits.push("joker");
+console.log(suits);
+console.log(suits[suits.length - 1]);
 
 console.groupEnd();
 
@@ -342,7 +373,16 @@ console.group("PRACTICE: Functions");
 //and returns the minimum of the two, or the first argument
 //if they are equal to each other. Then call it a few times
 //with various numbers to test it.
+function returnMin(a, b){
+    if(a < b)
+        return a;
+    else   
+        return b;
+}
 
+console.log(returnMin(1, 3));
+console.log(returnMin(3, 3));
+console.log(returnMin(4, 3));
 
 console.groupEnd();
 
@@ -418,6 +458,12 @@ function generateRandomNumbers(howMany, minimum, maximum) {
 
 //>>> your code goes here!
 
+function compare(){
+        
+}
+
+var numbers = generateRandomNumbers(20, 1, 100).sort();
+console.log(numbers);
 
 //now use the .sort() method on a generated array of random
 //numbers to sort them. Note that by default, sort will 
