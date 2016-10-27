@@ -17,6 +17,7 @@
  * function by the caller are matched up based 
  * on the order they appear in the function call
  */
+
 console.group("Functions");
 /**
  * offsetText() returns a string where each character
@@ -109,11 +110,8 @@ logValue("2016-10-27", formatAsDate);
  */
 var someNumber = 123456789;
 //logValue(...)
-
-
-
-
-
+logValue(someNumber,formatAsNumber);
+logValue(someNumber,formatAsCurrency);
 
 console.groupEnd();
 
@@ -163,7 +161,7 @@ if (course.foobar) {
     //course.foobar returns undefined
     console.log(course.foobar);
 }
-
+ 
 //you can get all of the property names from any object
 //using Object.keys(). This returns an array of strings,
 //one element for each property name
@@ -190,10 +188,9 @@ console.log("property names:", propNames);
  * see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
  */
 
-
-
-
-
+ propNames.forEach(function(prompName){
+     console.log(prompName + " = " + course[prompName]);
+ });
 
 
 
@@ -351,7 +348,17 @@ console.log("Total count", formatAsNumber(totalCount));
  * just reverse the logic in your compare function.
  */
 
+males.sort(function(a, b){
+    return b.count - a.count;
+})
 
+var mostPopMaleRecs = males.slice(0,10);
+console.log(mostPopMaleRecs)
+
+var mostPopMaleNames = mostPopMaleRecs.map(function(rec){
+                            return rec.name;
+                        });
+console.log(mostPopMaleNames);
 
 /**
  * PRACTICE
