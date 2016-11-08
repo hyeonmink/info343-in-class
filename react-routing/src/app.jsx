@@ -11,6 +11,7 @@ import React from "react";
 //path and not a module in our node_modules
 //directory 
 import "./css/main.css";
+import {Link, IndexLink} from "react-router"
 
 export default class extends React.Component {
     constructor(props) {
@@ -20,8 +21,18 @@ export default class extends React.Component {
     render() {
         return (
             <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <IndexLink to="/" activeClassName = "active">Products</IndexLink>
+                        </li>
+                        <li>
+                            <Link to="/cart" activeClassName = "active">Cart</Link>
+                        </li>
+                    </ul>
+                </nav>
                 <main>
-                    <h1>Hello React!</h1>
+                    {this.props.children}
                 </main>
             </div>
         );
